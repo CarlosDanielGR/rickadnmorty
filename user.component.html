@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Perfil</th>
+                </tr>
+              </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <th scope="row" >{{user.id}}</th>
+                    <td >{{user.nombre}}</td>
+                    <td >{{user.documento}}</td>
+                    <td >{{user.perfil}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <button class="btn btn-success" (click)="saveNew()">New data</button>
+        </div>
+        <div>
+            <button class="btn btn-success" (click)="modal(userModal)">Add new</button>
+        </div>
+    </div>
+    <ng-template #userModal let-modal>
+        <div class="modal-header">
+            <h2 class="modal-title">Add new user</h2>
+            <button class="close btn btn-danger" aria-label="close" type="button" (click)="modal.dismiss()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="contenido">
+                <form action="" class="form-control">
+                    <div>
+                        <label class="col-form-label" for="">ID</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div>
+                        <label class="col-form-label" for="">Nombre</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div>
+                        <label class="col-form-label" for="">Documento</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div>
+                        <label class="col-form-label" for="">Perfil</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <br>
+                    <div>
+                       <button class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </ng-template>
+</body>
+</html>
+
